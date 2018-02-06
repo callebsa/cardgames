@@ -7,11 +7,12 @@ def hello_world():
 
 @app.route('/vandtia/img/<path:filename>')
 def get_img(filename):
+  print filename
   w= int(request.args['w'])
   h= int(request.args['h'])
   try:
     im = Image.open(filename)
-    #im.thumbnail((w, h), Image.ANTIALIAS)
+    im.thumbnail((w, h), Image.ANTIALIAS)
     io = StringIO.StringIO()
     im.save(io, format='JPEG')
     return Response(io.getvalue(), mimetype='image/jpeg')
