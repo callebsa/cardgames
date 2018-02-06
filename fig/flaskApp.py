@@ -15,6 +15,7 @@ def get_img(filename):
     im.thumbnail((w, h), Image.ANTIALIAS)
     io = StringIO.StringIO()
     im.save(io, format='JPEG')
+    print "willsend"
     return Response(io.getvalue(), mimetype='image/jpeg')
   except:
     return "File :" + filename + "cannot be find";
