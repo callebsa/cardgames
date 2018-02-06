@@ -10,10 +10,14 @@ def get_img(filename):
   print filename
   w= int(request.args['w'])
   h= int(request.args['h'])
+  print "h: " + str(h)
   try:
     im = Image.open(filename)
+    print "x"
     im.thumbnail((w, h), Image.ANTIALIAS)
+    print "y"
     io = StringIO.StringIO()
+    print "Z"
     im.save(io, format='JPEG')
     print "willsend"
     return Response(io.getvalue(), mimetype='image/jpeg')
