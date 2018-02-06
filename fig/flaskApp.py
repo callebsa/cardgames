@@ -17,9 +17,9 @@ def get_img(filename):
         	#im.thumbnail((w, h), Image.ANTIALIAS)
        		io = StringIO.StringIO()
         	im.save(io, format='JPEG')
-        return Response(io.getvalue(), mimetype='image/jpeg')
+     	   return Response(io.getvalue(), mimetype='image/jpeg')
     except IOError:
         return "File :" + filename + "cannot be find";
-        
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=80, debug=True)
