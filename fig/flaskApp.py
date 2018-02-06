@@ -15,7 +15,7 @@ def get_img(filename):
     io = StringIO.StringIO()
     im.save(io, format='JPEG')
     return Response(io.getvalue(), mimetype='image/jpeg')
-  except IOError:
+  except:
     return "File :" + filename + "cannot be find";
 
 if __name__ == '__main__':
